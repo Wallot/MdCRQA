@@ -6,4 +6,4 @@ The mdcrqa.m and mdcrqa.R-functions compute multidimentional cross-recurrence pl
 The lorenzData.csv and roesslerDater.csv-files contain the data from the two dynamical systems used in the manuscript to illustrate the analysis.
 
 # Citation
-Wallot, S. (2019). Multidimensional Cross-Recurrence Quantification Analysis (MdCRQA)–a method for quantifying correlation between multivariate time-series. Multivariate behavioral research, 54(2), 173-191. Doi: [10.1080/00273171.2018.1512846]
+Wallot, S. (2019). Multidimensional Cross-Recurrence Quantification Analysis (MdCRQA)–a method for quantifying correlation between multivariate time-series. Multivariate behavioral research, 54(2), 173-191. Doi: [10.1080/00273171.2018.1512846](https://doi.org/10.1080/00273171.2018.1512846).
