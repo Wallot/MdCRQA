@@ -1,4 +1,4 @@
-function [CRP, RESULTS, PARAMETERS]=mdcrqa(TS1,TS2,EMB,DEL,NORM,RAD,DLINE, VLINE, ZSCORE)
+function [CRP, RESULTS, PARAMETERS]=mdcrqa(TS1,TS2,EMB,DEL,NORM,RAD,DLINE,VLINE,ZSCORE)
 % mdcrqa
 %  computes a cross-recurrence plot for two multi-dimensional time-series and
 %  performs recurrence quantification:
