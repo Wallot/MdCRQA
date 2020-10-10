@@ -1,4 +1,4 @@
-mdcrqa_rev <- function(ts1,ts2,emb,del,norm,rad,dline,vline,zscore, metric = "euclidean") {
+mdcrqa <- function(ts1,ts2,emb,del,norm,rad,dline,vline,zscore, metric = "euclidean") {
   # This function performs Multidimensional Cross-Recurrence Quantification Analysis (MdCRQA)
   # 
   # Inputs:
@@ -50,17 +50,6 @@ mdcrqa_rev <- function(ts1,ts2,emb,del,norm,rad,dline,vline,zscore, metric = "eu
   # Load cdist from rdist and Matrix form Matrix
   library(rdist)
   library(Matrix)
-  
-  ts1 <- a
-  ts2 <- b
-  emb <- 1
-  del <- 1
-  norm <- 'euc'
-  rad <- 0.5
-  dline <- 2
-  vline <- 2
-  zscore <- 0
-  metric = "euclidean"
   
   # check input variables
   if (exists("ts1")) {
