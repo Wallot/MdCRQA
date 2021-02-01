@@ -138,7 +138,7 @@ if exist('NORM')  % check whether NORM has been specified - if not, set NORM = '
         error('No appropriate norm parameter specified.');
     end
 else
-    NORM == 'euc';
+    NORM = 'euc';
 end
 
 if exist('RAD') % check whether RAD has been specified - if not, set arbitarily RAD = 1
@@ -146,13 +146,14 @@ else
     RAD=1;
 end
 
-if exist('ZSCORE') % check whether ZSCORE has been specified - if not, don't zscore
+if exist('ZSCORE','var') % check whether ZSCORE has been specified - if not, don't zscore
     if ZSCORE == 0
     else
     TS1 = zscore(TS1);
     TS2 = zscore(TS2);
     end
 else
+    ZSCORE = 0;
 end
 
 DIM = size(TS1); % compute dimensionality of input signals
@@ -170,6 +171,13 @@ if EMB > 1 % if EMB > 1, perform time-delayed embbedding
     TS2=tempTS2;
     clear tempTS2
 else
+end
+
+if ~exist('DLINE','var')
+    DLINE = 2;
+end
+if ~exist('VLINE','var')
+    VLINE = 2;
 end
 
 PARAMETERS={DIM,EMB,DEL,NORM,RAD,DLINE,VLINE,ZSCORE}; % store parameters
