@@ -89,6 +89,9 @@ function [CRP, RESULTS, PARAMETERS]=mdcrqa(TS1,TS2,EMB,DEL,NORM,RAD,DLINE,VLINE,
 % v1.0, 17. April 2018
 % by Sebastian Wallot, Max Planck Insitute for Empirical Aesthetics, Frankfurt, Germany
 %
+% v1.1, 09. May 2025
+% Corrected error in using DLINE and VLINE arguments in calculating recurrence measures.
+%
 % The author does not give any warranty whatsoever on the reliability of
 % the results obtained by this software.
 
@@ -207,7 +210,7 @@ for i = -(length(TS1)-1):length(TS1)-1 % caluculate diagonal line distribution
     end
     diag_hist(length(diag_hist)+1:length(diag_hist)+length(d))=d;
 end
-diag_hist=diag_hist(diag_hist>=DLINE);
+
 if isempty(diag_hist)
     diag_hist=0;
 else
@@ -224,26 +227,26 @@ for i=1:length(TS1) % calculate vertical line distribution
     end
     vertical_hist(length(vertical_hist)+1:length(vertical_hist)+length(v))=v;
 end
-vertical_hist=vertical_hist(vertical_hist>=VLINE);
+
 if isempty(vertical_hist)
     vertical_hist=0;
 else
 end
 
 RESULTS(1,3)=length(diag_hist);
-RESULTS(1,4)=100*sum(diag_hist(diag_hist>1))/sum(diag_hist); % calculate recurrence variables
-RESULTS(1,5)=mean(diag_hist(diag_hist>1));
+RESULTS(1,4)=100*sum(diag_hist(diag_hist>=DLINE))/sum(diag_hist); % calculate recurrence variables
+RESULTS(1,5)=mean(diag_hist(diag_hist>=DLINE));
 RESULTS(1,6)=max(diag_hist);
-[count,bin]=hist(diag_hist(diag_hist>1),min(diag_hist(diag_hist>1)):max(diag_hist));
+[count,bin]=hist(diag_hist(diag_hist>=DLINE),min(diag_hist(diag_hist>=DLINE)):max(diag_hist));
 total=sum(count);
 p=count./total;
 del=find(count==0); p(del)=[];
 RESULTS(1,7)=-1*sum(p.*log2(p));
 RESULTS(1,8)=length(vertical_hist);
-RESULTS(1,9)=100*sum(vertical_hist(vertical_hist>1))/sum(vertical_hist);
-RESULTS(1,10)=mean(vertical_hist(vertical_hist>1));
+RESULTS(1,9)=100*sum(vertical_hist(vertical_hist>=VLINE))/sum(vertical_hist);
+RESULTS(1,10)=mean(vertical_hist(vertical_hist>=VLINE));
 RESULTS(1,11)=max(vertical_hist);
-[count,bin]=hist(vertical_hist(vertical_hist>1),min(vertical_hist(vertical_hist>1)):max(vertical_hist));
+[count,bin]=hist(vertical_hist(vertical_hist>=VLINE),min(vertical_hist(vertical_hist>=VLINE)):max(vertical_hist));
 total=sum(count);
 p=count./total;
 del=find(count==0); p(del)=[];
