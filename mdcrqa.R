@@ -3,8 +3,8 @@ mdcrqa <- function(ts1,ts2,emb,del,norm,rad,dline,vline,zscore, metric = "euclid
   # 
   # Inputs:
   #
-  #  ts1 = a M x N matrix, where M is the number of indivdiual time series that are to be correlated and M is the number of data points in each time series
-  #  ts2 = a M x N matrix, where M is the number of indivdiual time series that are to be correlated and M is the number of data points in each time series
+  #  ts1 = a M x N matrix, where N is the number of indivdual time series that are to be correlated and M is the number of data points in each time series
+  #  ts2 = a M x N matrix, where N is the number of indivdual time series that are to be correlated and M is the number of data points in each time series
   #  emb = embedding dimension parameter, where emb = 1 mean no embedding, emb = 2 mean one creation of a surrogate copy of the original data etc.
   #  del = delay parameter, where del is the number of data points to be skipped for each additional embedding
   #  norm = norm parameter, where phase-space can be normalized by Euclidean distance 'euc', Maximum distance 'max', Minimum distance 'min', nor not 'non'
@@ -44,6 +44,9 @@ mdcrqa <- function(ts1,ts2,emb,del,norm,rad,dline,vline,zscore, metric = "euclid
   # v1.0, 13. April 2018
   # by Sebastian Wallot, Max Planck Insitute for Empirical Aesthetics, Frankfurt, Germany
   #
+  # v1.1, 09 April 2025
+  # - fixed typoes in the description of the function
+  # 
   # The author does not give any warranty whatsoever on the reliability of
   # the results obtained by this software.
   
